@@ -3,7 +3,7 @@
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-public class Library extends Building {
+public class Library extends Building implements LibraryRequirements{
   
   /**
   * Attributes
@@ -12,10 +12,13 @@ public class Library extends Building {
   
   /**
   * Constructor for Library
+  * @param name name of library
+  * @param address address of library
+  * @param nFloors number of floors in library
   * @return an instance of Library
   */
-  public Library() {
-    super("Neilson Library", "1 Chapin Way", 4);
+  public Library(String name, String address, int nfloors) {
+    super(name, address, nfloors);
     this.collection = new Hashtable<String, Boolean>();
     System.out.println("You have built a library: 📖");
   }
@@ -75,7 +78,7 @@ public class Library extends Building {
   /**
   * Prints the entire collection
   */
-  void printCollection(){
+  public void printCollection(){
     System.out.println(this.collection.toString());
   }
 
@@ -83,7 +86,7 @@ public class Library extends Building {
   * Main for testing methods
   */
   public static void main(String[] args) {
-    Library myLibrary = new Library();
+    Library myLibrary = new Library("Neilson Library", "1 Chapin Way", 4);
     myLibrary.addTitle("CSC 120 by Unknown");
     myLibrary.printCollection();
     myLibrary.checkOut("CSC 120 by Unknown");

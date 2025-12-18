@@ -2,7 +2,7 @@
 
 import java.util.ArrayList;
 
-public class House extends Building {
+public class House extends Building implements HouseRequirements{
 
   /**
   * Attributes
@@ -12,11 +12,14 @@ public class House extends Building {
 
   /**
   * Constructor for House
+  * @param name name of house
+  * @param address address of house
+  * @param nFloors number of floors in house
   * @param hasDiningRoom boolean value
   * @return an instance of House
   */
-  public House(boolean hasDiningRoom) {
-    super("Cushing House", "1 Mandelle Road", 4);
+  public House(String name, String address, int nFloors, boolean hasDiningRoom) {
+    super(name, address, nFloors);
     this.residents = new ArrayList<>();
     this.hasDiningRoom = hasDiningRoom;
     System.out.println("You have built a house: 🏠");
@@ -83,7 +86,7 @@ public class House extends Building {
   */
   public static void main(String[] args) {
     Student myStudent = new Student("Ingrid Herman", "12345678", 2028);
-    House myHouse = new House(false);
+    House myHouse = new House("Cushing House", "1 Mandelle Road", 4, false);
     myHouse.moveIn(myStudent);
     System.out.println(myHouse.isResident(myStudent));
   }

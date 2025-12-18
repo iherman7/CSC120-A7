@@ -1,5 +1,5 @@
 /* This is a stub for the Cafe class */
-public class Cafe extends Building {
+public class Cafe extends Building implements CafeRequirements{
    
     /**
     * Attributes
@@ -11,14 +11,17 @@ public class Cafe extends Building {
   
     /**
     * Constructor for Cafe
+    * @param name name of cafe
+    * @param address address of cafe
+    * @param nFloors number of floors in cafe
     * @param nCoffeeOunces number of coffee ounces in the inventory
     * @param nSugarPackets number of sugar packets in the inventory
     * @param nCreams number of creams in the inventory
     * @param nCups number of cups in the inventory
     * @return an instance of Cafe
     */
-    public Cafe(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
-        super("Compass Cafe", "1 Neilson Drive", 4);
+    public Cafe(String name, String address, int nFloors, int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
+        super(name, address, nFloors);
         this.nCoffeeOunces = nCoffeeOunces;
         this.nSugarPackets = nSugarPackets;
         this.nCreams = nCreams;
@@ -60,7 +63,7 @@ public class Cafe extends Building {
     * Main to test methods
     */
     public static void main(String[] args) {
-        Cafe myCafe = new Cafe(3, 3, 3, 3);
+        Cafe myCafe = new Cafe("Compass Cafe", "1 Chapin Way", 1, 3, 3, 3, 3);
         myCafe.sellCoffee(3, 2, 1);
         myCafe.sellCoffee(4, 3, 0);
     } 
